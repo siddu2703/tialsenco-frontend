@@ -35,7 +35,7 @@ jobs:
       - name: Build application
         run: npm run build
         env:
-          VITE_API_URL: https://your-backend.vercel.app
+          VITE_API_URL: https://v0-new-conversation-gx5vqqrun-siddharthcibi2017-9639s-projects.vercel.app
           VITE_IS_HOSTED: false
           VITE_APP_TITLE: "Your Invoicing Platform"
           VITE_ROUTER: browser
