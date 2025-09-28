@@ -32,7 +32,7 @@ function processMarkdownContent(content: string) {
       const alt = match.match(/!\[(.*?)\]/);
       const altText = alt ? alt[1] : 'An image';
 
-      return `![${altText}](https://raw.githubusercontent.com/invoiceninja/tilsenco.github.io/refs/heads/v5-rework/source${p1})`;
+      return `![${altText}](https://raw.githubusercontent.com/siddu2703/platform-docs/main/source${p1})`;
     })
     .trim();
 }
@@ -131,7 +131,7 @@ export function HelpWidget({ id, url }: Props) {
 
         <div className="flex justify-center">
           <Link
-            to={`https://tilsenco.github.io/${slug.replace('.md', '')}`}
+            to={`https://siddu2703.github.io/platform-docs/${slug.replace('.md', '')}`}
             external
             className="flex items-center space-x-2"
           >
