@@ -40,6 +40,7 @@ jobs:
           VITE_APP_TITLE: "Your Invoicing Platform"
           VITE_ROUTER: browser
           VITE_IS_TEST: false
+          NODE_ENV: production
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

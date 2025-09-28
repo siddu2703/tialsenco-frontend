@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
+  base: '/tialsenco-frontend/',
   plugins: [tsconfigPaths(), react()],
   server: {
     port: 3000,
