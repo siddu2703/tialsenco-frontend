@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -38,7 +38,7 @@ export interface Parameters {
   include_project_tasks?: boolean;
   auto_send?: boolean;
   invoice_id?: string;
-  schedule?: ScheduleParams[]
+  schedule?: ScheduleParams[];
 }
 export interface ScheduleParams {
   id: number;
@@ -67,4 +67,3 @@ export interface Schedule {
   archived_at: number;
   remaining_cycles: number;
 }
-

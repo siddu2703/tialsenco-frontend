@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -183,7 +183,7 @@ export function HelpSidebarIcons(props: Props) {
         <Button
           onClick={() => {
             window.open(
-              'https://invoiceninja.github.io/en/self-host-troubleshooting/#cron-not-running-queue-not-running',
+              'https://tilsenco.github.io/en/self-host-troubleshooting/#cron-not-running-queue-not-running',
               '_blank'
             );
           }}
@@ -272,7 +272,7 @@ export function HelpSidebarIcons(props: Props) {
                 <div
                   className="cursor-pointer"
                   onClick={() =>
-                    window.open('https://slack.invoiceninja.com', '_blank')
+                    window.open('https://slack.tilsenco.com', '_blank')
                   }
                 >
                   <Icon element={FaSlack} color="white" size={21.5} />
@@ -310,8 +310,8 @@ export function HelpSidebarIcons(props: Props) {
                   onClick={() =>
                     window.open(
                       props.docsLink
-                        ? `https://invoiceninja.github.io/${props.docsLink}`
-                        : 'https://invoiceninja.github.io',
+                        ? `https://tilsenco.github.io/${props.docsLink}`
+                        : 'https://tilsenco.github.io',
                       '_blank'
                     )
                   }

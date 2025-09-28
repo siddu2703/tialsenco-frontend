@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -60,5 +60,4 @@ export const invoiceMap: Record[] = [
   { trans: 'tax_rate2', value: 'invoice.tax_rate2', map: 'invoice' },
   { trans: 'tax_name3', value: 'invoice.tax_name3', map: 'invoice' },
   { trans: 'tax_rate3', value: 'invoice.tax_rate3', map: 'invoice' },
-
 ];

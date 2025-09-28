@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -275,50 +275,50 @@ export function EmailSettings() {
 
           {company?.settings.email_sending_method === 'client_ses' && (
             <>
-            <Element
-              leftSide={
-                <PropertyCheckbox
-                  propertyKey="ses_secret_key"
+              <Element
+                leftSide={
+                  <PropertyCheckbox
+                    propertyKey="ses_secret_key"
                     labelElement={<SettingsLabel label={t('ses_secret_key')} />}
-                />
-              }
-            >
-              <InputField
-                value={company?.settings.ses_secret_key || ''}
-                onValueChange={(value) =>
-                  handleChange('settings.ses_secret_key', value)
+                  />
                 }
-                disabled={disableSettingsField('ses_secret_key')}
-                errorMessage={errors?.errors['settings.ses_secret_key']}
-              />
-            </Element>
+              >
+                <InputField
+                  value={company?.settings.ses_secret_key || ''}
+                  onValueChange={(value) =>
+                    handleChange('settings.ses_secret_key', value)
+                  }
+                  disabled={disableSettingsField('ses_secret_key')}
+                  errorMessage={errors?.errors['settings.ses_secret_key']}
+                />
+              </Element>
 
-            <Element
-              leftSide={
-                <PropertyCheckbox
-                  propertyKey="ses_access_key"
+              <Element
+                leftSide={
+                  <PropertyCheckbox
+                    propertyKey="ses_access_key"
                     labelElement={<SettingsLabel label={t('ses_access_key')} />}
-                />
-              }
-            >
-              <InputField
-                value={company?.settings.ses_access_key || ''}
-                onValueChange={(value) =>
-                  handleChange('settings.ses_access_key', value)
+                  />
                 }
-                disabled={disableSettingsField('ses_access_key')}
-                errorMessage={errors?.errors['settings.ses_access_key']}
-              />
-            </Element>
-
-            <Element
-              leftSide={
-                <PropertyCheckbox
-                  propertyKey="ses_region"
-                  labelElement={<SettingsLabel label={t('region')} />}
+              >
+                <InputField
+                  value={company?.settings.ses_access_key || ''}
+                  onValueChange={(value) =>
+                    handleChange('settings.ses_access_key', value)
+                  }
+                  disabled={disableSettingsField('ses_access_key')}
+                  errorMessage={errors?.errors['settings.ses_access_key']}
                 />
-              }
-              leftSideHelp={t('ses_region_help')}
+              </Element>
+
+              <Element
+                leftSide={
+                  <PropertyCheckbox
+                    propertyKey="ses_region"
+                    labelElement={<SettingsLabel label={t('region')} />}
+                  />
+                }
+                leftSideHelp={t('ses_region_help')}
               >
                 <InputField
                   value={company?.settings.ses_region || ''}
@@ -328,17 +328,17 @@ export function EmailSettings() {
                   disabled={disableSettingsField('ses_region')}
                   errorMessage={errors?.errors['settings.ses_region']}
                 />
-            </Element>
+              </Element>
 
-            <Element
-              leftSide={
-                <PropertyCheckbox
-                  propertyKey="ses_topic_arn"
-                  labelElement={<SettingsLabel label={t('topic_arn')} />}
-                />
-              }
-              leftSideHelp={t('ses_topic_arn_help')}
-            >
+              <Element
+                leftSide={
+                  <PropertyCheckbox
+                    propertyKey="ses_topic_arn"
+                    labelElement={<SettingsLabel label={t('topic_arn')} />}
+                  />
+                }
+                leftSideHelp={t('ses_topic_arn_help')}
+              >
                 <InputField
                   value={company?.settings.ses_topic_arn || ''}
                   onValueChange={(value) =>
@@ -347,8 +347,7 @@ export function EmailSettings() {
                   disabled={disableSettingsField('ses_topic_arn')}
                   errorMessage={errors?.errors['settings.ses_topic_arn']}
                 />
-
-            </Element>
+              </Element>
             </>
           )}
 

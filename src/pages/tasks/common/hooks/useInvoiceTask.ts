@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -72,13 +72,11 @@ export function useInvoiceTask(params?: Params) {
           const unixStop = dayjs.unix(stop);
 
           hoursSum += unixStop.diff(unixStart, 'seconds');
-          
         }
       });
     }
 
     return Number((hoursSum / 3600).toFixed(3));
-
   };
 
   return async (tasks: Task[]) => {

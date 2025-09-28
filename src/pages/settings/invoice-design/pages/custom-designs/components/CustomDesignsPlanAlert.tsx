@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -36,9 +36,7 @@ export function CustomDesignsPlanAlert(props?: CommonProps) {
 
               {user?.company_user && (
                 <Link
-                  to={
-                    route('/settings/account_management')
-                  }
+                  to={route('/settings/account_management')}
                   className="ml-10"
                 >
                   {t('plan_change')}

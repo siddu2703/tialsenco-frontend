@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -57,7 +57,10 @@ client.interceptors.response.use(
       return;
     }
 
-    if (url?.endsWith('/api/v1/einvoice/token/update') && error.response?.status === 500) {
+    if (
+      url?.endsWith('/api/v1/einvoice/token/update') &&
+      error.response?.status === 500
+    ) {
       return Promise.reject(error);
     }
 

@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2024. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2024. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -44,7 +44,15 @@ export function useSockets() {
       return;
     }
 
-    const client = new Pusher(import.meta.env.VITE_PUSHER_APP_KEY ?? '', {
+    const pusherKey = import.meta.env.VITE_PUSHER_APP_KEY;
+
+    // Don't create Pusher client if no key is provided (local development)
+    if (!pusherKey || pusherKey.trim() === '') {
+      console.log('Pusher disabled - no API key provided');
+      return;
+    }
+
+    const client = new Pusher(pusherKey, {
       cluster: 'eu',
       authEndpoint: apiEndpoint() + '/broadcasting/auth',
       forceTLS: false,

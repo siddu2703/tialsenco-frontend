@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -23,7 +23,10 @@ import { VendorSelector } from '$app/components/vendors/VendorSelector';
 import { useTranslation } from 'react-i18next';
 import { ExpenseStatus } from '../../common/components/ExpenseStatus';
 import { CustomField } from '$app/components/CustomField';
-import { useCalculateExpenseAmount, useCalculateExpenseExclusiveAmount } from '../../common/hooks/useCalculateExpenseAmount';
+import {
+  useCalculateExpenseAmount,
+  useCalculateExpenseExclusiveAmount,
+} from '../../common/hooks/useCalculateExpenseAmount';
 import { useFormatMoney } from '$app/common/hooks/money/useFormatMoney';
 import { Icon } from '$app/components/icons/Icon';
 import { MdWarning } from 'react-icons/md';
@@ -105,7 +108,6 @@ export function Details(props: Props) {
 
     return [];
   };
-
 
   return (
     <div className="flex flex-col space-y-4">

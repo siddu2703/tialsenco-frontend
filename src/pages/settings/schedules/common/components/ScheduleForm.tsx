@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -78,7 +78,9 @@ export function ScheduleForm(props: Props) {
             <option value="email_statement">{t('email_statement')}</option>
             <option value="email_record">{t('email_record')}</option>
             <option value="email_report">{t('email_report')}</option>
-            <option value="invoice_outstanding_tasks">{t('invoice_outstanding_tasks')}</option>
+            <option value="invoice_outstanding_tasks">
+              {t('invoice_outstanding_tasks')}
+            </option>
             <option value="payment_schedule">{t('payment_schedule')}</option>
           </SelectField>
         </Element>

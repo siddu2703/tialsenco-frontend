@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -27,7 +27,10 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { RecurringExpenseStatus } from '../common/components/RecurringExpenseStatus';
 import { CustomField } from '$app/components/CustomField';
 import { useFormatMoney } from '$app/common/hooks/money/useFormatMoney';
-import { useCalculateExpenseAmount, useCalculateExpenseExclusiveAmount } from '$app/pages/expenses/common/hooks/useCalculateExpenseAmount';
+import {
+  useCalculateExpenseAmount,
+  useCalculateExpenseExclusiveAmount,
+} from '$app/pages/expenses/common/hooks/useCalculateExpenseAmount';
 import { Icon } from '$app/components/icons/Icon';
 import { MdLaunch, MdWarning } from 'react-icons/md';
 import { route } from '$app/common/helpers/route';
@@ -84,18 +87,19 @@ export function Details(props: Props) {
       {recurringExpense && (
         <Card className="shadow-sm" style={{ borderColor: colors.$24 }}>
           <Element leftSide={t('net_amount')} withoutWrappingLeftSide>
-            {recurringExpense.uses_inclusive_taxes ? formatMoney(
-              calculateExpenseExclusiveAmount(recurringExpense),
-              recurringExpense.client?.country_id,
-              recurringExpense.currency_id ||
-                recurringExpense.client?.settings.currency_id
-            )
-            : formatMoney(
-              calculateExpenseAmount(recurringExpense),
-              recurringExpense.client?.country_id,
-              recurringExpense.currency_id ||
-                recurringExpense.client?.settings.currency_id
-            )}
+            {recurringExpense.uses_inclusive_taxes
+              ? formatMoney(
+                  calculateExpenseExclusiveAmount(recurringExpense),
+                  recurringExpense.client?.country_id,
+                  recurringExpense.currency_id ||
+                    recurringExpense.client?.settings.currency_id
+                )
+              : formatMoney(
+                  calculateExpenseAmount(recurringExpense),
+                  recurringExpense.client?.country_id,
+                  recurringExpense.currency_id ||
+                    recurringExpense.client?.settings.currency_id
+                )}
           </Element>
         </Card>
       )}

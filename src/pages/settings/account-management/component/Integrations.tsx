@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -100,7 +100,7 @@ export function Integrations() {
           backgroundColor: colors.$1,
           hoverBackgroundColor: colors.$4,
         }}
-        onClick={() => window.open('https://invoiceninja.github.io', '_blank')}
+        onClick={() => window.open('https://tilsenco.github.io', '_blank')}
         style={{ borderColor: colors.$24 }}
       >
         <div className="flex items-center space-x-2">

@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -21,7 +21,12 @@ export function Variable(props: Props) {
 
   return (
     <span
-      style={{ color: colors.$3, colorScheme: colors.$0, backgroundColor: colors.$1, borderColor: colors.$4 }}
+      style={{
+        color: colors.$3,
+        colorScheme: colors.$0,
+        backgroundColor: colors.$1,
+        borderColor: colors.$4,
+      }}
       className="px-2 py-1 rounded m-1 inline-flex items-center space-x-2 hover:cursor-pointer"
       onClick={() => {
         navigator.clipboard.writeText(props.children);

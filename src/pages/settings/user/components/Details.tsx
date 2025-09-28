@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -19,7 +19,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useOutletContext } from 'react-router-dom';
 import { Element } from '../../../../components/cards';
 import { InputField } from '../../../../components/forms';
-import { LanguageSelector } from '$app/components/LanguageSelector';
 import { useAtom } from 'jotai';
 import { hasLanguageChanged } from '../../localization/common/atoms';
 import { MarkdownEditor } from '$app/components/forms/MarkdownEditor';
@@ -77,17 +76,7 @@ export function Details() {
             />
           </Element>
 
-          <Element leftSide={t('language')}>
-            <LanguageSelector
-              value={userChanges?.language_id || ''}
-              onChange={(v) => {
-                setHasLanguageIdChanged(true);
-                handleChange('language_id', v);
-              }}
-              errorMessage={(errors?.errors?.language_id ?? [])[0]}
-              dismissable
-            />
-          </Element>
+          {/* Language selector temporarily removed */}
 
           <Element leftSide={t('phone')}>
             <InputField

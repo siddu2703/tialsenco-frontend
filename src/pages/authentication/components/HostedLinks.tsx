@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -57,7 +57,7 @@ export function HostedLinks() {
       <div className="col-span-3 md:col-span-1">
         <StyledLink
           theme={{ hoverColor: colors.$2 }}
-          href="https://invoiceninja.github.io"
+          href="https://tilsenco.github.io"
           target="_blank"
           className="py-3 w-full hover:bg-gray-100 px-2 inline-flex justify-center items-center rounded-r"
           rel="noreferrer"

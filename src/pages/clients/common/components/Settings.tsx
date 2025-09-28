@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -19,7 +19,6 @@ import { useCurrencies } from '$app/common/hooks/useCurrencies';
 import { useLanguages } from '$app/common/hooks/useLanguages';
 import { SelectField } from '$app/components/forms/SelectField';
 import { usePaymentTermsQuery } from '$app/common/queries/payment-terms';
-import { LanguageSelector } from '$app/components/LanguageSelector';
 import { PaymentTerm } from '$app/common/interfaces/payment-term';
 import { NumberInputField } from '$app/components/forms/NumberInputField';
 import { MarkdownEditor } from '$app/components/forms/MarkdownEditor';
@@ -75,16 +74,7 @@ export default function Settings() {
           </Element>
         )}
 
-        {languages.length > 1 && (
-          <Element leftSide={t('language')}>
-            <LanguageSelector
-              value={client?.settings?.language_id || ''}
-              onChange={(v) => handleChange('settings.language_id', v)}
-              errorMessage={errors?.errors['settings.language_id']}
-              dismissable
-            />
-          </Element>
-        )}
+        {/* Language selector temporarily removed */}
 
         {paymentTermsResponse && (
           <Element leftSide={t('payment_terms')}>

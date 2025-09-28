@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -48,14 +48,14 @@ export interface CompanyGateway {
   token_billing: string;
   test_mode: boolean;
   always_show_required_fields: boolean;
-  is_default: boolean,
+  is_default: boolean;
   meta: {
     exp_month: string;
     exp_year: string;
     brand: string;
     last4: string;
     type: number;
-  }; 
+  };
   settings?: Settings;
 }
 

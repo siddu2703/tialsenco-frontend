@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -128,7 +128,6 @@ export function Notifications() {
     dispatch(injectInChangesWithData(user));
   };
 
-
   const handleDisableRecurringPaymentNotificationChange = (value: boolean) => {
     const emailNotifications = userChanges?.company_user?.notifications?.email;
 
@@ -136,15 +135,20 @@ export function Notifications() {
 
     if (!value) {
       updatedNotifications = updatedNotifications.filter(
-        (notificationKey) => notificationKey !== 'disable_recurring_payment_notification'
+        (notificationKey) =>
+          notificationKey !== 'disable_recurring_payment_notification'
       );
     } else {
       const isAlreadyAdded = updatedNotifications.find(
-        (notificationKey) => notificationKey === 'disable_recurring_payment_notification'
+        (notificationKey) =>
+          notificationKey === 'disable_recurring_payment_notification'
       );
 
       if (!isAlreadyAdded) {
-        updatedNotifications = [...updatedNotifications, 'disable_recurring_payment_notification'];
+        updatedNotifications = [
+          ...updatedNotifications,
+          'disable_recurring_payment_notification',
+        ];
       }
     }
 
@@ -195,7 +199,7 @@ export function Notifications() {
               (key: string) => key === 'task_assigned'
             )
           )}
-            onChange={(value) => handleTaskAssignedNotificationChange(value)}
+          onChange={(value) => handleTaskAssignedNotificationChange(value)}
         />
       </Element>
 

@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2024. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2024. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -32,7 +32,7 @@ function processMarkdownContent(content: string) {
       const alt = match.match(/!\[(.*?)\]/);
       const altText = alt ? alt[1] : 'An image';
 
-      return `![${altText}](https://raw.githubusercontent.com/invoiceninja/invoiceninja.github.io/refs/heads/v5-rework/source${p1})`;
+      return `![${altText}](https://raw.githubusercontent.com/invoiceninja/tilsenco.github.io/refs/heads/v5-rework/source${p1})`;
     })
     .trim();
 }
@@ -131,7 +131,7 @@ export function HelpWidget({ id, url }: Props) {
 
         <div className="flex justify-center">
           <Link
-            to={`https://invoiceninja.github.io/${slug.replace('.md', '')}`}
+            to={`https://tilsenco.github.io/${slug.replace('.md', '')}`}
             external
             className="flex items-center space-x-2"
           >

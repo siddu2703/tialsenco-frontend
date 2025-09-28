@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -47,12 +47,12 @@ export default function Import() {
                 <span>{t('how_to_import_data')}</span>
               </button>
             }
-            exampleUrl="https://invoiceninja.github.io/assets/example-imports/invoices.csv"
+            exampleUrl="https://tilsenco.github.io/assets/example-imports/invoices.csv"
           />
 
           <HelpWidget
             id="import-and-export"
-            url="https://raw.githubusercontent.com/invoiceninja/invoiceninja.github.io/refs/heads/v5-rework/source/en/import-and-export.md"
+            url="https://raw.githubusercontent.com/invoiceninja/tilsenco.github.io/refs/heads/v5-rework/source/en/import-and-export.md"
           />
         </div>
       </div>

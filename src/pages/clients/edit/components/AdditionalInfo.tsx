@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -26,7 +26,6 @@ import { MarkdownEditor } from '$app/components/forms/MarkdownEditor';
 import { ValidationBag } from '$app/common/interfaces/validation-bag';
 import { cloneDeep, set } from 'lodash';
 import { CurrencySelector } from '$app/components/CurrencySelector';
-import { LanguageSelector } from '$app/components/LanguageSelector';
 import { $refetch } from '$app/common/hooks/useRefetch';
 import { usePaymentTermsQuery } from '$app/common/queries/payment-terms';
 import { useEntityAssigned } from '$app/common/hooks/useEntityAssigned';
@@ -120,17 +119,6 @@ export function AdditionalInfo({ client, errors, setClient }: Props) {
                 value={client?.settings?.currency_id || ''}
                 onChange={(v) => handleSettingsChange('currency_id', v)}
                 errorMessage={errors?.errors['settings.currency_id']}
-                dismissable
-              />
-            </Element>
-          )}
-
-          {languages.length > 1 && (
-            <Element leftSide={t('language')}>
-              <LanguageSelector
-                value={client?.settings?.language_id || ''}
-                onChange={(v) => handleSettingsChange('language_id', v)}
-                errorMessage={errors?.errors['settings.language_id']}
                 dismissable
               />
             </Element>

@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -65,11 +65,15 @@ export class InvoiceItemSum {
 
   protected setDiscount() {
     if (this.invoice.is_amount_discount) {
-      this.item.line_total = parseFloat((this.item.line_total - this.item.discount).toFixed(2));
+      this.item.line_total = parseFloat(
+        (this.item.line_total - this.item.discount).toFixed(2)
+      );
     } else {
       const discount = this.item.line_total * (this.item.discount / 100);
 
-      this.item.line_total = parseFloat((this.item.line_total - discount).toFixed(2));
+      this.item.line_total = parseFloat(
+        (this.item.line_total - discount).toFixed(2)
+      );
     }
 
     this.item.is_amount_discount = this.invoice.is_amount_discount;
@@ -157,14 +161,12 @@ export class InvoiceItemSum {
 
   protected calculateAmountLineTax(rate: number, amount: number) {
     const result = (amount * rate) / 100;
-    
 
-    if(result > 0){
+    if (result > 0) {
       return Math.round((result * 1000) / 10) / 100; // for positive numbers, we need to round towards zero
-    }else{
+    } else {
       return Math.floor((result * 1000) / 10) / 100; // for negative numbers, we need to round away from zero
     }
-
   }
 
   protected push() {

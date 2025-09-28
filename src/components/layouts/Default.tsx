@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -20,9 +20,7 @@ import { MobileSidebar } from './components/MobileSidebar';
 import { useHasPermission } from '$app/common/hooks/permissions/useHasPermission';
 import { ModuleBitmask } from '$app/pages/settings/account-management/component';
 import { QuickCreatePopover } from '$app/components/QuickCreatePopover';
-import { isDemo, isHosted, isSelfHosted, trans } from '$app/common/helpers';
-import { useUnlockButtonForHosted } from '$app/common/hooks/useUnlockButtonForHosted';
-import { useUnlockButtonForSelfHosted } from '$app/common/hooks/useUnlockButtonForSelfHosted';
+import { trans } from '$app/common/helpers';
 import { useCurrentCompanyUser } from '$app/common/hooks/useCurrentCompanyUser';
 import { useEnabled } from '$app/common/guards/guards/enabled';
 import { Dropdown } from '$app/components/dropdown/Dropdown';
@@ -39,7 +37,6 @@ import { useColorScheme } from '$app/common/colors';
 import { Search } from '$app/pages/dashboard/components/Search';
 import { useInjectUserChanges } from '$app/common/hooks/useInjectUserChanges';
 import { useAtomValue } from 'jotai';
-import { usePreventNavigation } from '$app/common/hooks/usePreventNavigation';
 import { Notifications } from '../Notifications';
 import { useSocketEvent } from '$app/common/queries/sockets';
 import { Invoice } from '$app/common/interfaces/invoice';
@@ -94,7 +91,6 @@ export function Default(props: Props) {
 
   const enabled = useEnabled();
   const hasPermission = useHasPermission();
-  const preventNavigation = usePreventNavigation();
 
   const user = useInjectUserChanges();
   const company = useCurrentCompany();
@@ -103,8 +99,6 @@ export function Default(props: Props) {
   const isMiniSidebar = Boolean(
     user?.company_user?.react_settings.show_mini_sidebar
   );
-  const shouldShowUnlockButton =
-    !isDemo() && (useUnlockButtonForHosted() || useUnlockButtonForSelfHosted());
 
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
@@ -359,6 +353,13 @@ export function Default(props: Props) {
       visible: hasPermission('view_reports'),
     },
     {
+      name: 'Tile Management',
+      href: '/tiles',
+      icon: Cube,
+      current: location.pathname.startsWith('/tiles'),
+      visible: hasPermission('view_product'),
+    },
+    {
       name: t('settings'),
       href:
         companyUser?.is_admin || companyUser?.is_owner
@@ -464,46 +465,6 @@ export function Default(props: Props) {
 
             <div className="ml-4 flex items-center md:ml-6 space-x-2 lg:space-x-3">
               <Notifications />
-
-              {shouldShowUnlockButton && (
-                <button
-                  type="button"
-                  className="hidden sm:inline-flex items-center justify-center px-4 rounded-md text-sm font-medium text-white relative overflow-hidden"
-                  style={{
-                    height: '2.25rem',
-                    background: '#2176FF',
-                    border: '1px solid #0062ff',
-                    boxShadow:
-                      '0px 1px 1px 0px #1453B82E, 0px 2px 2px 0px #1453B829, 0px 5px 3px 0px #1453B817, 0px 9px 4px 0px #1453B808, 0px 15px 4px 0px #1453B800, 0px 1px 0px 0px #FFFFFF40 inset, 0px 0px 0px 1px #0062FF',
-                  }}
-                  onClick={() => {
-                    if (
-                      isHosted() &&
-                      import.meta.env.VITE_ENABLE_NEW_ACCOUNT_MANAGEMENT
-                    ) {
-                      return navigate('/settings/account_management');
-                    }
-
-                    preventNavigation({
-                      url: (isSelfHosted()
-                        ? import.meta.env.VITE_WHITELABEL_INVOICE_URL ||
-                          'https://invoiceninja.invoicing.co/client/subscriptions/O5xe7Rwd7r/purchase'
-                        : user?.company_user?.ninja_portal_url) as string,
-                      externalLink: true,
-                    });
-                  }}
-                >
-                  <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
-
-                  <span className="relative z-10 hidden xl:block">
-                    {isSelfHosted() ? t('white_label_button') : t('unlock_pro')}
-                  </span>
-
-                  <span className="relative z-10 xl:hidden">
-                    {t('upgrade')}
-                  </span>
-                </button>
-              )}
 
               {props.onCancelClick && (
                 <Button onClick={props.onCancelClick} type="secondary">

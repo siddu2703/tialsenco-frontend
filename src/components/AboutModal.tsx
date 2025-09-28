@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -234,7 +234,7 @@ export function AboutModal(props: Props) {
 
         <div className="flex flex-wrap justify-center items-center space-x-4 pt-6">
           <a
-            href="https://twitter.com/invoiceninja"
+            href="https://twitter.com/tilsenco"
             target="_blank"
             rel="noreferrer"
           >
@@ -242,7 +242,7 @@ export function AboutModal(props: Props) {
           </a>
 
           <a
-            href="https://www.facebook.com/invoiceninja"
+            href="https://www.facebook.com/tilsenco"
             target="_blank"
             rel="noreferrer"
           >
@@ -250,7 +250,7 @@ export function AboutModal(props: Props) {
           </a>
 
           <a
-            href="https://github.com/invoiceninja"
+            href="https://github.com/tilsenco"
             target="_blank"
             rel="noreferrer"
           >
@@ -265,11 +265,7 @@ export function AboutModal(props: Props) {
             <Youtube />
           </a>
 
-          <a
-            href="http://slack.invoiceninja.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="http://slack.tilsenco.com/" target="_blank" rel="noreferrer">
             <Slack />
           </a>
         </div>
@@ -358,7 +354,7 @@ export function AboutModal(props: Props) {
                 onClick={() =>
                   window
                     .open(
-                      'https://invoiceninja.github.io/en/self-host-installation/#file-permissions',
+                      'https://tilsenco.github.io/en/self-host-installation/#file-permissions',
                       '_blank'
                     )
                     ?.focus()
@@ -391,7 +387,7 @@ export function AboutModal(props: Props) {
               onClick={() =>
                 window
                   .open(
-                    'https://invoiceninja.github.io/en/self-host-troubleshooting/#pdf-conversion-issues',
+                    'https://tilsenco.github.io/en/self-host-troubleshooting/#pdf-conversion-issues',
                     '_blank'
                   )
                   ?.focus()
@@ -420,7 +416,7 @@ export function AboutModal(props: Props) {
               onClick={() =>
                 window
                   .open(
-                    'https://invoiceninja.github.io/en/self-host-installation/#currency-conversion',
+                    'https://tilsenco.github.io/en/self-host-installation/#currency-conversion',
                     '_blank'
                   )
                   ?.focus()
@@ -493,7 +489,7 @@ export function AboutModal(props: Props) {
               onClick={() =>
                 window
                   .open(
-                    'https://github.com/invoiceninja/invoiceninja/releases',
+                    'https://github.com/tilsenco/tilsenco/releases',
                     '_blank'
                   )
                   ?.focus()

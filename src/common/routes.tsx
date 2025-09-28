@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -13,6 +13,9 @@ import { PrivateRoute } from '../components/PrivateRoute';
 import { invoiceRoutes } from '$app/pages/invoices/routes';
 import { clientRoutes } from '$app/pages/clients/routes';
 import { productRoutes } from '$app/pages/products/routes';
+import { warehouseRoutes } from '$app/pages/warehouses/routes';
+import { stockMovementRoutes } from '$app/pages/stock-movements/routes';
+import { inventoryRoutes } from '$app/pages/inventory/routes';
 import { recurringInvoiceRoutes } from '$app/pages/recurring-invoices/routes';
 import { paymentRoutes } from '$app/pages/payments/routes';
 import { settingsRoutes } from '$app/pages/settings/routes';
@@ -29,9 +32,8 @@ import { transactionRoutes } from '$app/pages/transactions/routes';
 import { recurringExpenseRoutes } from '$app/pages/recurring-expenses/routes';
 import { lazy } from 'react';
 import { Index } from '$app/pages/Index';
-import { TestingRoute } from '$app/components/TestingRoute';
-import { TestingPage } from '$app/components/TestingPage';
 import { activityRoutes } from '$app/pages/activities/routes';
+import { tileRoutes } from '$app/pages/tiles/routes';
 import { Guard } from './guards/Guard';
 import { permission } from './guards/guards/permission';
 
@@ -55,6 +57,9 @@ export const routes = (
       {invoiceRoutes}
       {clientRoutes}
       {productRoutes}
+      {warehouseRoutes}
+      {stockMovementRoutes}
+      {inventoryRoutes}
       {recurringInvoiceRoutes}
       {paymentRoutes}
       {quoteRoutes}
@@ -67,11 +72,9 @@ export const routes = (
       {recurringExpenseRoutes}
       {reportRoutes}
       {transactionRoutes}
+      {tileRoutes}
       {settingsRoutes}
       {activityRoutes}
-      <Route element={<TestingRoute />}>
-        <Route path="/testing" element={<TestingPage />} />
-      </Route>
     </Route>
     <Route path="*" element={<NotFound />} />
   </Routes>

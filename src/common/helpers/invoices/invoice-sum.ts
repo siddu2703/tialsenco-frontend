@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -77,30 +77,31 @@ export class InvoiceSum {
   }
 
   protected peppolSurchargeTaxes() {
-      const invoice_item = this.invoice.line_items[0];
-      const name = invoice_item?.tax_name1;
-      const rate = invoice_item?.tax_rate1 ?? 0;
-      const amount = this.invoice.custom_surcharge1+this.invoice.custom_surcharge2+this.invoice.custom_surcharge3+this.invoice.custom_surcharge4;
-      
-      if(rate > 0 && amount != 0){
+    const invoice_item = this.invoice.line_items[0];
+    const name = invoice_item?.tax_name1;
+    const rate = invoice_item?.tax_rate1 ?? 0;
+    const amount =
+      this.invoice.custom_surcharge1 +
+      this.invoice.custom_surcharge2 +
+      this.invoice.custom_surcharge3 +
+      this.invoice.custom_surcharge4;
 
-        const total = Math.round((((amount * rate) / 100) * 1000) / 10) / 100;
+    if (rate > 0 && amount != 0) {
+      const total = Math.round((((amount * rate) / 100) * 1000) / 10) / 100;
 
-        let group = {};
+      let group = {};
 
-        const key = name + rate.toString().replace(' ', ''); // 'Tax Rate' + '5' => 'TaxRate5'
+      const key = name + rate.toString().replace(' ', ''); // 'Tax Rate' + '5' => 'TaxRate5'
 
-        group = { key, total, name: `${name} ${parseFloat(rate.toString())} %` }; // 'Tax Rate 5.00%'
+      group = { key, total, name: `${name} ${parseFloat(rate.toString())} %` }; // 'Tax Rate 5.00%'
 
-        this.invoiceItems.taxCollection.push(collect(group));
-      
-      }
-      
-      return this;
+      this.invoiceItems.taxCollection.push(collect(group));
+    }
+
+    return this;
   }
 
   protected calculateInvoiceTaxes() {
-
     let calculatedTax = 0;
 
     if (this.invoice.tax_name1.length >= 1) {
@@ -155,7 +156,9 @@ export class InvoiceSum {
       });
     }
 
-    this.totalTaxes = parseFloat(calculatedTax.toFixed(this.currency?.precision || 2));
+    this.totalTaxes = parseFloat(
+      calculatedTax.toFixed(this.currency?.precision || 2)
+    );
 
     return this;
   }
@@ -214,8 +217,12 @@ export class InvoiceSum {
       this.invoiceItems.calculateTaxesWithAmountDiscount();
       this.invoice.line_items = this.invoiceItems.lineItems;
     }
-    
-    if(this.invoice.tax_name1.length == 0 && this.invoice.custom_surcharge1 !=0 && this.invoice.custom_surcharge_tax1){
+
+    if (
+      this.invoice.tax_name1.length == 0 &&
+      this.invoice.custom_surcharge1 != 0 &&
+      this.invoice.custom_surcharge_tax1
+    ) {
       this.peppolSurchargeTaxes();
     }
 
@@ -300,10 +307,9 @@ export class InvoiceSum {
   }
 
   protected taxer(amount: number, tax_rate: number) {
-
     const taxAmount = amount * ((tax_rate ?? 0) / 100);
     return this.roundToPrecision(taxAmount);
-    // return Number((Math.ceil(taxAmount * 100)) / 100);    
+    // return Number((Math.ceil(taxAmount * 100)) / 100);
     // return Number((Math.round(amount * ((tax_rate ?? 0) / 100) * 1000) / 10) / 100);
   }
 
@@ -314,7 +320,9 @@ export class InvoiceSum {
     if (isNegative) {
       number = number * -1;
     }
-    number = Number(Math.round(Number(number + `e+${precision}`)) + `e-${precision}`);
+    number = Number(
+      Math.round(Number(number + `e+${precision}`)) + `e-${precision}`
+    );
     if (isNegative) {
       number = number * -1;
     }

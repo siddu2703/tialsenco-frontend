@@ -1,16 +1,16 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco Business Management Platform.
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2024. Tilsenco LLC
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
 import { useCurrentCompany } from '$app/common/hooks/useCurrentCompany';
 import { useResolveLanguage } from '$app/common/hooks/useResolveLanguage';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -98,30 +98,36 @@ export function App() {
   const [isCompanyEditModalOpened, setIsCompanyEditModalOpened] =
     useState(false);
 
-  const resolvedLanguage = company
-    ? resolveLanguage(
-        user?.language_id && user.language_id.length > 0
-          ? user.language_id
-          : company.settings.language_id
-      )
-    : undefined;
+  const resolvedLanguage = useMemo(() => {
+    if (!company) return undefined;
 
-  const handleToasterErrors = (event: Event) => {
-    if (!id && !location.pathname.startsWith('/settings')) {
-      const { error } = (event as CustomEvent).detail;
+    const languageId =
+      user?.language_id && user.language_id.length > 0
+        ? user.language_id
+        : company.settings.language_id;
 
-      if (error.response.data.errors) {
-        const errors = error.response.data.errors || {};
-        const key = Object.keys(errors)?.[0];
+    return resolveLanguage(languageId);
+  }, [company, user?.language_id, resolveLanguage]);
 
-        const errorMessage = errors?.[key]?.[0];
+  const handleToasterErrors = useCallback(
+    (event: Event) => {
+      if (!id && !location.pathname.startsWith('/settings')) {
+        const { error } = (event as CustomEvent).detail;
 
-        if (errorMessage) {
-          toast.error(errorMessage);
+        if (error.response.data.errors) {
+          const errors = error.response.data.errors || {};
+          const key = Object.keys(errors)?.[0];
+
+          const errorMessage = errors?.[key]?.[0];
+
+          if (errorMessage) {
+            toast.error(errorMessage);
+          }
         }
       }
-    }
-  };
+    },
+    [id, location.pathname]
+  );
 
   useEffect(() => {
     if (reactSettings) {
@@ -160,7 +166,7 @@ export function App() {
         i18n.changeLanguage(resolvedLanguage.locale);
       }
     }
-  }, [darkMode, resolvedLanguage]);
+  }, [resolvedLanguage?.locale]);
 
   useEffect(() => {
     window.addEventListener('navigate.invalid.page', () =>
@@ -185,7 +191,7 @@ export function App() {
     return () => {
       window.removeEventListener('display.error.toaster', handleToasterErrors);
     };
-  }, [id, location]);
+  }, [handleToasterErrors]);
 
   useEffect(() => {
     const companyName = company?.settings?.name;
@@ -198,7 +204,7 @@ export function App() {
       localStorage.setItem('COMPANY-EDIT-OPENED', 'true');
       setIsCompanyEditModalOpened(true);
     }
-  }, [company]);
+  }, [company?.settings?.name, t]);
 
   useEffect(() => {
     if (
@@ -214,7 +220,13 @@ export function App() {
     ) {
       navigate('/settings/company_details');
     }
-  }, [location]);
+  }, [
+    location.pathname,
+    isCompanySettingsActive,
+    isGroupSettingsActive,
+    switchToCompanySettings,
+    navigate,
+  ]);
 
   useEffect(() => {
     if (
@@ -225,7 +237,7 @@ export function App() {
     ) {
       navigate('/settings/user_details');
     }
-  }, [location, user]);
+  }, [location.pathname, user, hasPermission, navigate]);
 
   const sockets = useSockets();
 

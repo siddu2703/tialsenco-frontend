@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -16,7 +16,9 @@ import { Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { admin } from '$app/common/guards/guards/admin';
 
-const Activities = lazy(() => import('$app/pages/payments/edit/components/Activities'));
+const Activities = lazy(
+  () => import('$app/pages/payments/edit/components/Activities')
+);
 const Payment = lazy(() => import('$app/pages/payments/Payment'));
 const Import = lazy(() => import('$app/pages/payments/import/Import'));
 const Payments = lazy(() => import('$app/pages/payments/index/Payments'));

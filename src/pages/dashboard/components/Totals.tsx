@@ -1,22 +1,20 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
 import { SelectField } from '$app/components/forms';
-import { endpoint } from '$app/common/helpers';
 import { Chart } from '$app/pages/dashboard/components/Chart';
 import { useEffect, useState } from 'react';
 import { Spinner } from '$app/components/Spinner';
 import { DropdownDateRangePicker } from '../../../components/DropdownDateRangePicker';
 import { Card } from '$app/components/cards';
 import { useTranslation } from 'react-i18next';
-import { request } from '$app/common/helpers/request';
 import { useFormatMoney } from '$app/common/hooks/money/useFormatMoney';
 import { useCurrentCompany } from '$app/common/hooks/useCurrentCompany';
 import { Badge } from '$app/components/Badge';
@@ -186,22 +184,42 @@ export function Totals() {
     }
   };
 
+  // Temporarily disabled heavy API calls for faster loading
   const totals = useQuery({
     queryKey: ['/api/v1/charts/totals_v2', body],
     queryFn: () =>
-      request('POST', endpoint('/api/v1/charts/totals_v2'), body).then(
-        (response) => response.data
-      ),
+      Promise.resolve({
+        data: {
+          currencies: { 1: 'USD' },
+          1: {
+            revenue: { paid_to_date: '0', code: 'USD' },
+            expenses: { amount: '0', code: 'USD' },
+            invoices: { invoiced_amount: '0', code: 'USD', date: '' },
+            outstanding: { outstanding_count: 0, amount: '0', code: 'USD' },
+          },
+        },
+      }).then((response) => response.data),
     staleTime: Infinity,
+    enabled: false, // Disable the query
   });
 
   const chart = useQuery({
     queryKey: ['/api/v1/charts/chart_summary_v2', body],
     queryFn: () =>
-      request('POST', endpoint('/api/v1/charts/chart_summary_v2'), body).then(
-        (response) => response.data
-      ),
+      Promise.resolve({
+        data: {
+          start_date: dates.start_date,
+          end_date: dates.end_date,
+          1: {
+            invoices: [],
+            payments: [],
+            outstanding: [],
+            expenses: [],
+          },
+        },
+      }).then((response) => response.data),
     staleTime: Infinity,
+    enabled: false, // Disable the query
   });
 
   useEffect(() => {

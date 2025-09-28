@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -246,7 +246,17 @@ export default function EInvoice() {
         )}
       </Card>
 
-      {Boolean([InvoiceStatus.Sent, InvoiceStatus.Draft, InvoiceStatus.Paid, InvoiceStatus.Partial].includes((invoice?.status_id?.toString() ?? InvoiceStatus.Draft) as InvoiceStatus)) && (
+      {Boolean(
+        [
+          InvoiceStatus.Sent,
+          InvoiceStatus.Draft,
+          InvoiceStatus.Paid,
+          InvoiceStatus.Partial,
+        ].includes(
+          (invoice?.status_id?.toString() ??
+            InvoiceStatus.Draft) as InvoiceStatus
+        )
+      ) && (
         <Card title={t('status')}>
           <div className="flex px-6 text-sm">
             <div

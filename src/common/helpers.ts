@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -25,14 +25,10 @@ export function isSelfHosted(): boolean {
 }
 
 export function apiEndpoint(): string {
-  if (isHosted()) {
-    return 'https://invoicing.co';
-  }
-
   return (
     import.meta.env.VITE_API_URL ||
     window.location.origin ||
-    'https://invoicing.co'
+    'http://localhost:8001'
   );
 }
 

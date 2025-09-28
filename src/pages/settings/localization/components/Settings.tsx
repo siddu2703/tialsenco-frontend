@@ -1,14 +1,13 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-import { isDemo } from '$app/common/helpers';
 import { useInjectCompanyChanges } from '$app/common/hooks/useInjectCompanyChanges';
 import { DateFormat } from '$app/common/interfaces/date-format';
 import { Timezone } from '$app/common/interfaces/timezone';
@@ -30,7 +29,6 @@ import { PropertyCheckbox } from '$app/components/PropertyCheckbox';
 import { useDisableSettingsField } from '$app/common/hooks/useDisableSettingsField';
 import { SettingsLabel } from '$app/components/SettingsLabel';
 import { CurrencySelector } from '$app/components/CurrencySelector';
-import { LanguageSelector } from '$app/components/LanguageSelector';
 import { useFormatMoney } from '$app/common/hooks/money/useFormatMoney';
 import { useColorScheme } from '$app/common/colors';
 
@@ -136,28 +134,6 @@ export function Settings() {
           disabled={disableSettingsField('show_currency_code')}
         />
       </Element>
-
-      {!isDemo() && (
-        <Element
-          leftSide={
-            <PropertyCheckbox
-              propertyKey="language_id"
-              labelElement={<SettingsLabel label={t('language')} />}
-              defaultValue="1"
-            />
-          }
-        >
-          <LanguageSelector
-            onChange={(v) => {
-              setHasLanguageIdChanged(true);
-              handleChange('settings.language_id', v);
-            }}
-            value={company?.settings?.language_id || ''}
-            disabled={disableSettingsField('language_id')}
-            errorMessage={errors?.errors['settings.language_id']}
-          />
-        </Element>
-      )}
 
       <Element
         leftSide={

@@ -1,14 +1,14 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-import { Record } from "./client-map";
+import { Record } from './client-map';
 
 export const contactMap: Record[] = [
   { trans: 'first_name', value: 'contact.first_name', map: 'contact' },
@@ -39,12 +39,28 @@ export const contactMap: Record[] = [
   { trans: 'custom_value2', value: 'client.custom_value2', map: 'contact' },
   { trans: 'custom_value3', value: 'client.custom_value3', map: 'contact' },
   { trans: 'custom_value4', value: 'client.custom_value4', map: 'contact' },
-  { trans: 'shipping_address1', value: 'client.shipping_address1', map: 'contact' },
-  { trans: 'shipping_address2', value: 'client.shipping_address2', map: 'contact' },
+  {
+    trans: 'shipping_address1',
+    value: 'client.shipping_address1',
+    map: 'contact',
+  },
+  {
+    trans: 'shipping_address2',
+    value: 'client.shipping_address2',
+    map: 'contact',
+  },
   { trans: 'shipping_city', value: 'client.shipping_city', map: 'contact' },
   { trans: 'shipping_state', value: 'client.shipping_state', map: 'contact' },
-  { trans: 'shipping_postal_code', value: 'client.shipping_postal_code', map: 'contact' },
-  { trans: 'shipping_country', value: 'client.shipping_country_id', map: 'contact' },
+  {
+    trans: 'shipping_postal_code',
+    value: 'client.shipping_postal_code',
+    map: 'contact',
+  },
+  {
+    trans: 'shipping_country',
+    value: 'client.shipping_country_id',
+    map: 'contact',
+  },
   { trans: 'payment_terms', value: 'client.payment_terms', map: 'contact' },
   { trans: 'vat_number', value: 'client.vat_number', map: 'contact' },
   { trans: 'id_number', value: 'client.id_number', map: 'contact' },

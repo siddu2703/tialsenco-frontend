@@ -9,10 +9,14 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        ninja: {
+        tilsenco: {
           gray: '#242930',
           'gray-darker': '#2F2E2E',
           'gray-lighter': '#363D47',
+          orange: '#F97316',
+          'orange-dark': '#EA580C',
+          'orange-light': '#FB923C',
+          'orange-lighter': '#FDBA74',
         },
       },
     },

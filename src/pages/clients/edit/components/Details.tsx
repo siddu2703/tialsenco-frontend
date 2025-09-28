@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -127,11 +127,11 @@ export function Details(props: Props) {
         />
       </Element>
 
-      <Element leftSide={t('vat_number')}>
+      <Element leftSide={t('gst_number')}>
         <InputField
-          value={props.client?.vat_number || ''}
-          onValueChange={(value) => handleChange('vat_number', value)}
-          errorMessage={props.errors?.errors.vat_number}
+          value={props.client?.gst_number || ''}
+          onValueChange={(value) => handleChange('gst_number', value)}
+          errorMessage={props.errors?.errors.gst_number}
         />
       </Element>
 
@@ -159,11 +159,11 @@ export function Details(props: Props) {
         />
       </Element>
 
-      <Element leftSide={t('valid_vat_number')}>
+      <Element leftSide={t('valid_gst_number')}>
         <Toggle
-          checked={Boolean(props.client?.has_valid_vat_number)}
+          checked={Boolean(props.client?.has_valid_gst_number)}
           onValueChange={(value) =>
-            handleCustomFieldChange('has_valid_vat_number', value)
+            handleCustomFieldChange('has_valid_gst_number', value)
           }
         />
       </Element>

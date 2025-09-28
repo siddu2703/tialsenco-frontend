@@ -1,4 +1,4 @@
-# Invoice Ninja
+# Tilsenco
 
 ### `npm run dev`
 
@@ -9,8 +9,8 @@ The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### Code of conduct
-For the code of conduct, check our [main repository](https://github.com/invoiceninja/invoiceninja/blob/master/CODE_OF_CONDUCT.md).
+For the code of conduct, check our [main repository](https://github.com/tilsenco/tilsenco/blob/master/CODE_OF_CONDUCT.md).
 
 ### Licence
 
-For the licence, check our [main repository](https://github.com/invoiceninja/invoiceninja/blob/master/LICENSE).
+For the licence, check our [main repository](https://github.com/tilsenco/tilsenco/blob/master/LICENSE).

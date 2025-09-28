@@ -22,6 +22,23 @@
   .animate-jiggle {
     animation: jiggle 0.8s ease-in-out infinite;
   }
+
+  /* Orange accent utilities */
+  .bg-tilsenco-orange {
+    background-color: #f97316;
+  }
+
+  .hover\:bg-tilsenco-orange-dark:hover {
+    background-color: #ea580c;
+  }
+
+  .text-tilsenco-orange {
+    color: #f97316;
+  }
+
+  .border-tilsenco-orange {
+    border-color: #f97316;
+  }
 }
 
 .phone-input-field > input {
@@ -36,7 +53,7 @@
 }
 
 .phone-input-field-dark > input:focus {
-  border-color: white;
+  border-color: #f97316;
 }
 
 .phone-input-field-light > input {
@@ -44,5 +61,5 @@
 }
 
 .phone-input-field-light > input:focus {
-  border-color: black;
+  border-color: #f97316;
 }

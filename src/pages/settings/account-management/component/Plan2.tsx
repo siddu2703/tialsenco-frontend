@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2024. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2024. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -121,7 +121,7 @@ export function Plan2() {
                 <h3 className="font-semibold mb-3">Pro</h3>
                 <p className="flex items-center space-x-1">
                   <Check size={18} style={{ color: accentColor }} />
-                  <span className="block">Remove Invoice Ninja logo</span>
+                  <span className="block">Remove Tilsenco logo</span>
                 </p>
                 <p className="flex items-center space-x-1">
                   <Check size={18} style={{ color: accentColor }} />

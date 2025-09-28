@@ -1,14 +1,14 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-import { Record } from "./client-map";
+import { Record } from './client-map';
 
 export const taskMap: Record[] = [
   { trans: 'start_date', value: 'task.start_date', map: 'task' },
@@ -18,7 +18,11 @@ export const taskMap: Record[] = [
   { trans: 'duration', value: 'task.duration', map: 'task' },
   { trans: 'duration_words', value: 'task.duration_words', map: 'task' },
   { trans: 'log_duration', value: 'task.time_log', map: 'task' },
-  { trans: 'log_duration_words', value: 'task.time_log_duration_words', map: 'task' },
+  {
+    trans: 'log_duration_words',
+    value: 'task.time_log_duration_words',
+    map: 'task',
+  },
   { trans: 'rate', value: 'task.rate', map: 'task' },
   { trans: 'number', value: 'task.number', map: 'task' },
   { trans: 'description', value: 'task.description', map: 'task' },

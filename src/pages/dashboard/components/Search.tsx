@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -433,7 +433,7 @@ export function Search$() {
             <div
               className="flex cursor-pointer items-center space-x-2 text-sm px-3"
               onClick={() => {
-                window.open('https://invoiceninja.github.io', '_blank');
+                window.open('https://tilsenco.github.io', '_blank');
               }}
             >
               <span className="mb-0.5" style={{ color: colors.$3 }}>

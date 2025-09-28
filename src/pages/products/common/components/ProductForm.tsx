@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -173,6 +173,176 @@ export function ProductForm(props: Props) {
           </Element>
         </>
       )}
+
+      {/* Tile-specific Fields */}
+      <Element leftSide={t('tile_type')}>
+        <SelectField
+          value={product.tile_type || ''}
+          onValueChange={(value) => handleChange('tile_type', value)}
+          errorMessage={errors?.errors.tile_type}
+        >
+          <option value="">Select Tile Type</option>
+          <option value="Floor">Floor</option>
+          <option value="Wall">Wall</option>
+          <option value="Outdoor">Outdoor</option>
+          <option value="Kitchen">Kitchen</option>
+          <option value="Bathroom">Bathroom</option>
+        </SelectField>
+      </Element>
+
+      <Element leftSide={t('tile_size')}>
+        <InputField
+          value={product.tile_size || ''}
+          onValueChange={(value) => handleChange('tile_size', value)}
+          errorMessage={errors?.errors.tile_size}
+          placeholder="e.g. 600x600mm"
+        />
+      </Element>
+
+      <Element leftSide={t('tile_color')}>
+        <InputField
+          value={product.tile_color || ''}
+          onValueChange={(value) => handleChange('tile_color', value)}
+          errorMessage={errors?.errors.tile_color}
+          placeholder="e.g. White, Beige, Grey"
+        />
+      </Element>
+
+      <Element leftSide={t('tile_finish')}>
+        <SelectField
+          value={product.tile_finish || ''}
+          onValueChange={(value) => handleChange('tile_finish', value)}
+          errorMessage={errors?.errors.tile_finish}
+        >
+          <option value="">Select Finish</option>
+          <option value="Gloss">Gloss</option>
+          <option value="Matt">Matt</option>
+          <option value="Satin">Satin</option>
+          <option value="Polished">Polished</option>
+          <option value="Unglazed">Unglazed</option>
+        </SelectField>
+      </Element>
+
+      <Element leftSide={t('tile_material')}>
+        <SelectField
+          value={product.tile_material || ''}
+          onValueChange={(value) => handleChange('tile_material', value)}
+          errorMessage={errors?.errors.tile_material}
+        >
+          <option value="">Select Material</option>
+          <option value="Ceramic">Ceramic</option>
+          <option value="Porcelain">Porcelain</option>
+          <option value="Vitrified">Vitrified</option>
+          <option value="Stone">Stone</option>
+          <option value="Marble">Marble</option>
+          <option value="Granite">Granite</option>
+        </SelectField>
+      </Element>
+
+      <Element leftSide={t('tile_thickness')}>
+        <InputField
+          value={product.tile_thickness || ''}
+          onValueChange={(value) => handleChange('tile_thickness', value)}
+          errorMessage={errors?.errors.tile_thickness}
+          placeholder="e.g. 10mm"
+        />
+      </Element>
+
+      <Element leftSide={t('tile_grade')}>
+        <SelectField
+          value={product.tile_grade || ''}
+          onValueChange={(value) => handleChange('tile_grade', value)}
+          errorMessage={errors?.errors.tile_grade}
+        >
+          <option value="">Select Grade</option>
+          <option value="A">Grade A</option>
+          <option value="B">Grade B</option>
+          <option value="C">Grade C</option>
+          <option value="Premium">Premium</option>
+          <option value="Standard">Standard</option>
+        </SelectField>
+      </Element>
+
+      <Element leftSide={t('pieces_per_box')}>
+        <NumberInputField
+          value={product.pieces_per_box || ''}
+          onValueChange={(value) =>
+            handleChange('pieces_per_box', parseInt(value))
+          }
+          errorMessage={errors?.errors.pieces_per_box}
+        />
+      </Element>
+
+      <Element leftSide={t('coverage_area_per_box')}>
+        <NumberInputField
+          value={product.coverage_area_per_box || ''}
+          onValueChange={(value) =>
+            handleChange('coverage_area_per_box', parseFloat(value))
+          }
+          errorMessage={errors?.errors.coverage_area_per_box}
+          placeholder="sq.ft or sq.m"
+        />
+      </Element>
+
+      <Element leftSide={t('brand')}>
+        <InputField
+          value={product.brand || ''}
+          onValueChange={(value) => handleChange('brand', value)}
+          errorMessage={errors?.errors.brand}
+        />
+      </Element>
+
+      <Element leftSide={t('collection')}>
+        <InputField
+          value={product.collection || ''}
+          onValueChange={(value) => handleChange('collection', value)}
+          errorMessage={errors?.errors.collection}
+        />
+      </Element>
+
+      <Element leftSide={t('batch_number')}>
+        <InputField
+          value={product.batch_number || ''}
+          onValueChange={(value) => handleChange('batch_number', value)}
+          errorMessage={errors?.errors.batch_number}
+        />
+      </Element>
+
+      <Element leftSide={t('manufacturing_date')}>
+        <InputField
+          type="date"
+          value={product.manufacturing_date || ''}
+          onValueChange={(value) => handleChange('manufacturing_date', value)}
+          errorMessage={errors?.errors.manufacturing_date}
+        />
+      </Element>
+
+      <Element leftSide={t('hsn_code')}>
+        <InputField
+          value={product.hsn_code || ''}
+          onValueChange={(value) => handleChange('hsn_code', value)}
+          errorMessage={errors?.errors.hsn_code}
+          placeholder="e.g. 6907"
+        />
+      </Element>
+
+      <Element leftSide={t('gst_rate')}>
+        <NumberInputField
+          value={product.gst_rate || ''}
+          onValueChange={(value) => handleChange('gst_rate', parseFloat(value))}
+          errorMessage={errors?.errors.gst_rate}
+          placeholder="%"
+        />
+      </Element>
+
+      <Element leftSide={t('country_of_origin')}>
+        <InputField
+          value={product.country_of_origin || ''}
+          onValueChange={(value) => handleChange('country_of_origin', value)}
+          errorMessage={errors?.errors.country_of_origin}
+          placeholder="e.g. India"
+        />
+      </Element>
 
       {company && company.enabled_item_tax_rates > 0 && (
         <Element leftSide={t('tax')}>

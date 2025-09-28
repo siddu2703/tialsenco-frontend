@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -19,7 +19,13 @@ import { DropdownElement } from '$app/components/dropdown/DropdownElement';
 import { Icon } from '$app/components/icons/Icon';
 import { Action } from '$app/components/ResourceActions';
 import { useTranslation } from 'react-i18next';
-import { MdArchive, MdControlPointDuplicate, MdDelete, MdFileUpload, MdRestore } from 'react-icons/md';
+import {
+  MdArchive,
+  MdControlPointDuplicate,
+  MdDelete,
+  MdFileUpload,
+  MdRestore,
+} from 'react-icons/md';
 import { $refetch } from '$app/common/hooks/useRefetch';
 import { useAtomValue } from 'jotai';
 import { invalidationQueryAtom } from '$app/common/atoms/data-table';
@@ -43,17 +49,18 @@ export function useActions() {
   const handleCloneGateway = (companyGatewayId: string) => {
     toast.processing();
 
-    request('POST', endpoint('/api/v1/company_gateways/:id/clone', { id: companyGatewayId })
-      ).then((response) => {
-        toast.success(response.data.message);
-        $refetch(['company_gateways']);
+    request(
+      'POST',
+      endpoint('/api/v1/company_gateways/:id/clone', { id: companyGatewayId })
+    ).then((response) => {
+      toast.success(response.data.message);
+      $refetch(['company_gateways']);
 
-        const queryClient = useQueryClient();
-        const invalidateQueryValue = useAtomValue(invalidationQueryAtom);
-        invalidateQueryValue &&
-          queryClient.invalidateQueries([invalidateQueryValue]);
-      }
-    );
+      const queryClient = useQueryClient();
+      const invalidateQueryValue = useAtomValue(invalidationQueryAtom);
+      invalidateQueryValue &&
+        queryClient.invalidateQueries([invalidateQueryValue]);
+    });
   };
 
   const actions: Action<CompanyGateway>[] = [

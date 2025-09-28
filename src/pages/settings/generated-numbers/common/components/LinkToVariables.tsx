@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -17,7 +17,7 @@ export function LinkToVariables() {
   return (
     <Link
       className="pl-4 sm:pl-6"
-      to="https://invoiceninja.github.io/en/custom-fields/#custom-fields"
+      to="https://tilsenco.github.io/en/custom-fields/#custom-fields"
       external
     >
       {t('click_to_variables')}

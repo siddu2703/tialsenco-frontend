@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -223,6 +223,22 @@ export const keys = {
   entity_validations: {
     path: '/api/v1/einvoice/validateEntity',
     dependencies: [],
+  },
+  warehouses: {
+    path: '/api/v1/warehouses',
+    dependencies: [
+      '/api/v1/products',
+      '/api/v1/inventory',
+      '/api/v1/stock_movements',
+    ],
+  },
+  stock_movements: {
+    path: '/api/v1/stock_movements',
+    dependencies: [
+      '/api/v1/warehouses',
+      '/api/v1/inventory',
+      '/api/v1/products',
+    ],
   },
 };
 

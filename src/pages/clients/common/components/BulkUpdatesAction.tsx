@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -107,12 +107,10 @@ export function BulkUpdatesAction(props: Props) {
 
   useEffect(() => {
     if (column === 'remaining_cycles') {
-      setNewColumnValue("-1");
-    }
-    else if (column === 'uses_inclusive_taxes') {
+      setNewColumnValue('-1');
+    } else if (column === 'uses_inclusive_taxes') {
       setNewColumnValue(false);
-    }
-    else{
+    } else {
       setNewColumnValue('');
     }
   }, [column]);
@@ -211,7 +209,6 @@ export function BulkUpdatesAction(props: Props) {
             value={column}
             onValueChange={(value) => {
               setColumn(value);
-              
             }}
             withBlank
             customSelector
@@ -286,19 +283,19 @@ export function BulkUpdatesAction(props: Props) {
             )}
 
             {getFieldType() === 'remainingCyclesSelector' && (
-                <SelectField
-                  value={newColumnValue}
-                  onValueChange={(value) => setNewColumnValue(value)}
-                >
-                  <option value="-1">{t('endless')}</option>
-                  {[...Array(37).keys()].map((number, index) => (
-                    <option value={number} key={index}>
-                      {number}
-                    </option>
-                  ))}
-                </SelectField>
+              <SelectField
+                value={newColumnValue}
+                onValueChange={(value) => setNewColumnValue(value)}
+              >
+                <option value="-1">{t('endless')}</option>
+                {[...Array(37).keys()].map((number, index) => (
+                  <option value={number} key={index}>
+                    {number}
+                  </option>
+                ))}
+              </SelectField>
             )}
-            
+
             {getFieldType() === 'countrySelector' && (
               <CountrySelector
                 value={newColumnValue as string}

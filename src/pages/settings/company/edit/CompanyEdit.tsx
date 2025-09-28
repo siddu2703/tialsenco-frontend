@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -19,7 +19,6 @@ import { CurrencySelector } from '$app/components/CurrencySelector';
 import { Modal } from '$app/components/Modal';
 import { useState, SetStateAction, Dispatch } from 'react';
 import { useTranslation } from 'react-i18next';
-import { LanguageSelector } from '$app/components/LanguageSelector';
 import { Logo } from '../components';
 import {
   resetChanges,
@@ -189,12 +188,7 @@ export function CompanyEdit(props: Props) {
               />
             )}
 
-            <LanguageSelector
-              label={t('language')}
-              value={companyChanges?.settings?.language_id || ''}
-              onChange={(value) => handleChange('settings.language_id', value)}
-              errorMessage={errors?.errors?.language_id}
-            />
+            {/* Language selector temporarily removed */}
 
             <CurrencySelector
               label={t('currency')}

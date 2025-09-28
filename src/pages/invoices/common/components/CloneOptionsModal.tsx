@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -70,7 +70,6 @@ export function CloneOptionsModal(props: Props) {
       vendor_id: '',
       paid_to_date: 0,
       design_id: company.settings.quote_design_id,
-
     });
 
     navigate('/quotes/create?action=clone');
@@ -94,7 +93,6 @@ export function CloneOptionsModal(props: Props) {
       vendor_id: '',
       paid_to_date: 0,
       design_id: company.settings.credit_design_id,
-
     });
 
     navigate('/credits/create?action=clone');
@@ -118,7 +116,6 @@ export function CloneOptionsModal(props: Props) {
       due_date: '',
       partial_due_date: '',
       design_id: company.settings.invoice_design_id,
-
     });
 
     navigate('/recurring_invoices/create?action=clone');
@@ -142,7 +139,6 @@ export function CloneOptionsModal(props: Props) {
       due_date: '',
       partial_due_date: '',
       design_id: company.settings.purchase_order_design_id,
-
     });
 
     navigate('/purchase_orders/create?action=clone');

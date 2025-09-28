@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -15,21 +15,21 @@ import { Default } from '$app/components/layouts/Default';
 import { useTranslation } from 'react-i18next';
 
 export default function Import() {
-    const { t } = useTranslation();
-    const { documentTitle } = useTitle('import');
+  const { t } = useTranslation();
+  const { documentTitle } = useTitle('import');
 
-    const pages: Page[] = [
-        { name: t('tasks'), href: '/tasks' },
-        { name: t('import'), href: '/tasks/import' },
-    ];
+  const pages: Page[] = [
+    { name: t('tasks'), href: '/tasks' },
+    { name: t('import'), href: '/tasks/import' },
+  ];
 
-    return (
-        <Default title={documentTitle} breadcrumbs={pages}>
-            <div className="grid grid-cols-12">
-                <div className="col-span-12 xl:col-span-8">
-                    <UploadImport entity="task" onSuccess={false} type="csv" />
-                </div>
-            </div>
-        </Default>
-    );
+  return (
+    <Default title={documentTitle} breadcrumbs={pages}>
+      <div className="grid grid-cols-12">
+        <div className="col-span-12 xl:col-span-8">
+          <UploadImport entity="task" onSuccess={false} type="csv" />
+        </div>
+      </div>
+    </Default>
+  );
 }

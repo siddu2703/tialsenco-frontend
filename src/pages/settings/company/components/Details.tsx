@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -96,21 +96,21 @@ export function Details() {
           <Element
             leftSide={
               <PropertyCheckbox
-                propertyKey="vat_number"
-                labelElement={<SettingsLabel label={t('vat_number')} />}
+                propertyKey="gst_number"
+                labelElement={<SettingsLabel label={t('gst_number')} />}
               />
             }
           >
             <InputField
-              value={companyChanges?.settings?.vat_number || ''}
+              value={companyChanges?.settings?.gst_number || ''}
               onValueChange={(value) =>
-                handleChange('settings.vat_number', value.toString())
+                handleChange('settings.gst_number', value.toString())
               }
               disabled={
-                disableSettingsField('vat_number') ||
+                disableSettingsField('gst_number') ||
                 companyChanges?.legal_entity_id !== null
               }
-              errorMessage={errors?.errors['settings.vat_number']}
+              errorMessage={errors?.errors['settings.gst_number']}
             />
 
             {companyChanges?.legal_entity_id ? (

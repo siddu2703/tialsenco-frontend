@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -37,8 +37,13 @@ export function AccountWarningsModal(props: Props) {
       visible={props.visible}
       onClose={() => props.setVisible(false)}
     >
-      <div className=""
-        style={{ backgroundColor: colors.$2, color: colors.$3, colorScheme: colors.$0 }}
+      <div
+        className=""
+        style={{
+          backgroundColor: colors.$2,
+          color: colors.$3,
+          colorScheme: colors.$0,
+        }}
       >
         <p>
           {props.type === 'activity'

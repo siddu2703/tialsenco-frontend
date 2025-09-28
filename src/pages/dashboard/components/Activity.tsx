@@ -1,16 +1,14 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
 
-import { endpoint } from '$app/common/helpers';
 import { Spinner } from '$app/components/Spinner';
-import { request } from '$app/common/helpers/request';
 import { useQuery } from 'react-query';
 import { Card } from '$app/components/cards';
 import { useTranslation } from 'react-i18next';
@@ -25,10 +23,11 @@ export function Activity() {
 
   const colors = useColorScheme();
 
+  // Temporarily disabled for faster loading
   const { data, isLoading, isError } = useQuery(
     ['/api/v1/activities'],
-    () => request('GET', endpoint('/api/v1/activities?reactv2')),
-    { staleTime: 300000 }
+    () => Promise.resolve({ data: { data: [] } }),
+    { staleTime: 300000, enabled: false }
   );
 
   const activityElement = useGenerateActivityElement();

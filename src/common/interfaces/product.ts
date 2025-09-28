@@ -1,11 +1,11 @@
 import { Company } from './company.interface';
 
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -40,4 +40,22 @@ export interface Product {
   stock_notification_threshold: number;
   documents: any[];
   company?: Company;
+
+  // Tile-specific fields
+  tile_type?: string;
+  tile_size?: string;
+  tile_color?: string;
+  tile_finish?: string;
+  tile_pattern?: string;
+  batch_number?: string;
+  manufacturing_date?: string;
+  brand?: string;
+  collection?: string;
+  material?: string;
+  thickness?: number;
+  weight_per_piece?: number;
+  pieces_per_box?: number;
+  area_per_box?: number;
+  hsn_code?: string;
+  gst_rate?: number;
 }

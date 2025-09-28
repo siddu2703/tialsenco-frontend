@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -73,7 +73,7 @@ export interface Client extends Timestamps {
   shipping_country_id: string;
   settings: Record<string, any>;
   is_deleted: boolean;
-  vat_number: string;
+  gst_number: string;
   id_number: string;
   display_name: string;
   number: string;
@@ -81,7 +81,7 @@ export interface Client extends Timestamps {
   documents: any[];
   gateway_tokens: GatewayToken[];
   group_settings?: GroupSettings;
-  has_valid_vat_number: boolean;
+  has_valid_gst_number: boolean;
   is_tax_exempt: boolean;
   routing_id: string;
   tax_info?: TaxInfo;

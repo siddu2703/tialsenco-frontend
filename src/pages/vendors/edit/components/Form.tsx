@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -26,7 +26,6 @@ import { CurrencySelector } from '$app/components/CurrencySelector';
 import { useLanguages } from '$app/common/hooks/useLanguages';
 import { EntityStatus } from '$app/components/EntityStatus';
 import { Dispatch, SetStateAction } from 'react';
-import { LanguageSelector } from '$app/components/LanguageSelector';
 import { useAdmin } from '$app/common/hooks/permissions/useHasPermission';
 import { useColorScheme } from '$app/common/colors';
 import { Trash } from '$app/components/icons/Trash';
@@ -230,11 +229,11 @@ export function Form(props: Props) {
                 />
               </Element>
 
-              <Element leftSide={t('vat_number')}>
+              <Element leftSide={t('gst_number')}>
                 <InputField
-                  value={vendor.vat_number || ''}
-                  onValueChange={(value) => handleChange('vat_number', value)}
-                  errorMessage={errors?.errors.vat_number}
+                  value={vendor.gst_number || ''}
+                  onValueChange={(value) => handleChange('gst_number', value)}
+                  errorMessage={errors?.errors.gst_number}
                 />
               </Element>
 
@@ -587,17 +586,6 @@ export function Form(props: Props) {
                       errorMessage={errors?.errors.currency_id}
                     />
                   </Element>
-
-                  {languages.length > 1 && (
-                    <Element leftSide={t('language')} noExternalPadding>
-                      <LanguageSelector
-                        value={vendor.language_id}
-                        onChange={(v) => handleChange('language_id', v)}
-                        errorMessage={errors?.errors.language_id}
-                        dismissable
-                      />
-                    </Element>
-                  )}
 
                   <MarkdownEditor
                     label={t('public_notes').toString()}

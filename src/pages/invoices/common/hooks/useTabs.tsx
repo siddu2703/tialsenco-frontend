@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -101,12 +101,17 @@ export function useTabs(params: Params) {
     {
       name: t('payments'),
       href: route('/invoices/:id/payments', { id }),
-      enabled: invoice?.status_id === InvoiceStatus.Paid || invoice?.status_id === InvoiceStatus.Partial,
+      enabled:
+        invoice?.status_id === InvoiceStatus.Paid ||
+        invoice?.status_id === InvoiceStatus.Partial,
     },
     {
       name: t('payment_schedule'),
       href: route('/invoices/:id/payment_schedule', { id }),
-      enabled: invoice?.status_id === InvoiceStatus.Draft || invoice?.status_id === InvoiceStatus.Sent || invoice?.status_id === InvoiceStatus.Partial && canEditAndView,
+      enabled:
+        invoice?.status_id === InvoiceStatus.Draft ||
+        invoice?.status_id === InvoiceStatus.Sent ||
+        (invoice?.status_id === InvoiceStatus.Partial && canEditAndView),
     },
   ];
 

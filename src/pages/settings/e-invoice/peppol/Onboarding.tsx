@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2024. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2024. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -251,7 +251,7 @@ function PlanCheck({ onContinue }: StepProps) {
           {t('add_license_to_env')}
           &nbsp;
           <a
-            href="https://invoiceninja.github.io/en/env-variables/"
+            href="https://tilsenco.github.io/en/env-variables/"
             target="_blank"
             rel="noreferrer"
             style={{ color: accentColor }}

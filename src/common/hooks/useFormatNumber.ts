@@ -1,9 +1,9 @@
 /**
- * Invoice Ninja (https://invoiceninja.com).
+ * Tilsenco (https://tilsenco.com).
  *
- * @link https://github.com/invoiceninja/invoiceninja source repository
+ * @link https://github.com/tilsenco/tilsenco source repository
  *
- * @copyright Copyright (c) 2022. Invoice Ninja LLC (https://invoiceninja.com)
+ * @copyright Copyright (c) 2022. Tilsenco LLC (https://tilsenco.com)
  *
  * @license https://www.elastic.co/licensing/elastic-license
  */
@@ -13,21 +13,19 @@ import { useCurrentCompany } from './useCurrentCompany';
 import { useResolveCurrency } from './useResolveCurrency';
 
 export function useFormatNumber() {
-    const resolveCurrency = useResolveCurrency();
-    const company = useCurrentCompany();
+  const resolveCurrency = useResolveCurrency();
+  const company = useCurrentCompany();
 
-    return (
-        value: string | number
-    ) => {
-        const currency = resolveCurrency(company?.settings.currency_id);
+  return (value: string | number) => {
+    const currency = resolveCurrency(company?.settings.currency_id);
 
-        if (currency) {
-            return NumberHelper.formatValue(
-                isNaN(Number(value)) ? 0 : value,
-                currency
-            );
-        }
+    if (currency) {
+      return NumberHelper.formatValue(
+        isNaN(Number(value)) ? 0 : value,
+        currency
+      );
+    }
 
-        return value;
-    };
+    return value;
+  };
 }
