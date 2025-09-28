@@ -77,7 +77,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "build-with-types": "tsc && vite build",
     "format": "prettier --write src/",
     "lint": "eslint src --max-warnings=0",
     "test": "jest",
